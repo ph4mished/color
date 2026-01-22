@@ -1,6 +1,7 @@
 package color
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -155,6 +156,29 @@ func allDigits(s string) bool {
 }
   
 
+func (temp CompiledTemplate) Apply(args ...any) string {
+  //Calculate estimated size for optimization
+  var totalArgLength int
+  for _, arg := range args{
+	totalArgLength += len(fmt.Sprint(arg))
+  }
+
+  estimatedSize := temp.TotalLength + totalArgLength
+  var result strings.Builder
+  result.Grow(estimatedSize)
+
+  for _, part := range temp.Parts{
+	if part.Index < 0{
+	  result.WriteString(part.Text)
+	} else {
+	  if part.Index < len(args) {
+		result.WriteString(fmt.Sprint(args[part.Index]))
+	  }
+	}
+  }
+  return result.String()
+}
+/*
 func (temp CompiledTemplate) Apply(args ...string) string {
   //Calculate estimated size for optimization
   var totalArgLength int
@@ -176,5 +200,5 @@ func (temp CompiledTemplate) Apply(args ...string) string {
 	}
   }
   return result.String()
-}
+}*/
 
