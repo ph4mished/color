@@ -36,7 +36,7 @@ var ColorMap = map[string]string{
   "bg=lightblue":         "104",
   "bg=lightmagenta":      "105",
   "bg=lightcyan":         "106",
-  "bg=lightwhite":        "107"
+  "bg=lightwhite":        "107",
 }
 
 var ResetMap = map[string]string{
@@ -53,7 +53,7 @@ var ResetMap = map[string]string{
   "blinkfast=reset": "26",
   "reverse=reset": "27",
   "hidden=reset": "28",
-  "strike=reset": "29"
+  "strike=reset": "29",
 }
 
 var StyleMap = map[string]string{
@@ -67,5 +67,5 @@ var StyleMap = map[string]string{
   "reverse": "7",
   "hidden": "8",
   "strike": "9" , //strike-through,
-  "underline=double": "21"
+  "underline=double": "21",
 }
