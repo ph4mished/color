@@ -29,7 +29,7 @@ func autoDetect() bool {
     return false	
   }
   //uncomment after moving to version 1.24
-  //return term.isTerminal(int(os.Stdout.Fd())){
+  //return term.isTerminal(int(os.Stdout.Fd()))//{
 
   //}
   //comment after moving to version 1.24
