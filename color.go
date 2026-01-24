@@ -111,7 +111,8 @@ func (toggle *ColorToggle) Parse(input string) CompiledTemplate {
 			//decided to make it flexible and accept more indices but its still prone to overflow
             //needs a digit boundary guard	
 			index, err := strconv.Atoi(contentSequence)
-			if err == nil {
+			// limit for indices
+			if err == nil && index >= 0 && index <= 999 {
 			  parts = append(parts, TempPart{Text: "", Index: index})
 			} else {
 			  addText := "[" + contentSequence + "]"
@@ -178,27 +179,5 @@ func (temp CompiledTemplate) Apply(args ...any) string {
   }
   return result.String()
 }
-/*
-func (temp CompiledTemplate) Apply(args ...string) string {
-  //Calculate estimated size for optimization
-  var totalArgLength int
-  for _, arg := range args{
-	totalArgLength += len(arg)
-  }
 
-  estimatedSize := temp.TotalLength + totalArgLength
-  var result strings.Builder
-  result.Grow(estimatedSize)
-
-  for _, part := range temp.Parts{
-	if part.Index < 0{
-	  result.WriteString(part.Text)
-	} else {
-	  if part.Index < len(args) {
-		result.WriteString(args[part.Index])
-	  }
-	}
-  }
-  return result.String()
-}*/
 

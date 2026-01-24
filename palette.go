@@ -44,7 +44,6 @@ var ResetMap = map[string]string{
   "reset":               "0",  //reset all styles
   "fg=reset":            "39", //resets foreground colors
   "bg=reset":           "49", //reset background colors
-   //"resetBold": "21", 2 is not mostly supported
   "bold=reset": "22",
   "dim=reset": "22",
   "italic=reset": "23",
