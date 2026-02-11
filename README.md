@@ -3,6 +3,7 @@
 
 A comprehensive Go library for adding colors, styles, and formatting to terminal output with support for multiple color formats and truecolor detection. [This is a Go port of the Spectra color library](https://github.com/ph4mished/spectra)
 
+
 # Installation
 
 ```bash
@@ -717,8 +718,5 @@ MIT License - see LICENSE file for details.
 ---
 
 **Note**: Always test color output in different terminals to ensure compatibility with your users' environments. Consider providing a --no-color flag in your applications for users who prefer plain text.
-# color
-A port of spectra color library to golang
 
-This library provides a powerful, performance-optimized way to add colors to your Go CLI applications while respecting user preferences and terminal capabilities.
 
