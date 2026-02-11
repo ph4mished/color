@@ -16,7 +16,7 @@ import (
 
 func isValidHex(hexCode string) bool {
   //fg=RRGGBB
-  if len(hexCode) == 10{
+  if len(hexCode) == 10 && (strings.HasPrefix(hexCode, "fg=") || strings.HasPrefix(hexCode, "bg=")){
     matched, _ := regexp.MatchString(`^[0-9a-fA-F]+$`, hexCode[4:])
     if len(hexCode[4:]) == 6 || matched {
       return true
@@ -28,7 +28,7 @@ func isValidHex(hexCode string) bool {
 func isValid256Code(paletteCode string) bool {
   //low = fg=0
   //high = fg=255
-  if len(paletteCode) >= 4 && len(paletteCode) <= 6{
+  if len(paletteCode) >= 4 && len(paletteCode) <= 6 && (strings.HasPrefix(paletteCode, "fg=") || strings.HasPrefix(paletteCode, "bg=")){
     parsedInt, err := strconv.Atoi(paletteCode[3:])
     if err != nil{
       return false
@@ -42,7 +42,7 @@ func isValidRGB(rgbCode string) bool {
   //low = fg=rgb(r,g,b)
   //high = fg=rgb(rrr,ggg,bbb)  
   //includes positions 3,4,5,6 excludes position 7
-  if len(rgbCode) >= 13 && len(rgbCode) <= 19{
+  if len(rgbCode) >= 13 && len(rgbCode) <= 19 && (strings.HasPrefix(rgbCode, "fg=") || strings.HasPrefix(rgbCode, "bg=")){
     if !strings.HasPrefix(rgbCode[3:], "rgb(") && !strings.HasSuffix(rgbCode, ")"){
       return false
     }

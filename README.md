@@ -658,7 +658,7 @@ Manual concatenation: 2.651576062s
 
 # Limitations
 
-1. Terminal Dependency: Colors only work in terminals that support ANSI escape codes
+1. Terminal Dependency: Colors only work in terminals that support ANSI escape codes(Unix/Linux platforms)
 2. TrueColor Requirement: Hex and RGB colors require terminal with truecolor support
 3. Style Support: Some styles (blink, double underline) may not work in all terminals
 4. Color Detection: Fallback from truecolor to 256-color not yet implemented
@@ -693,10 +693,8 @@ git clone https://github.com/ph4mished/color.git
 cd color
 
 # Run tests
-go test ./...
+go test 
 
-# Check for issues
-golangci-lint run
 ```
 
 # Areas Needing Improvement
@@ -704,8 +702,7 @@ golangci-lint run
 1. Better Windows compatibility
 2. 256-color fallback for truecolor
 3. Performance optimization
-4. More color spaces (HSL, HSV)
-5. Gradient support
+
 
 # License
 

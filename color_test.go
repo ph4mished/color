@@ -10,11 +10,11 @@ func TestExample(t *testing.T){
 	temp256 := Parse("[bold fg=115]Hello[reset]")
 	tempHex := Parse("[bold fg=#AABBCC]Hello[reset]")
 	tempRGB := Parse("[bold fg=rgb(15,102,224)]Hello [reset]")
-	
-	fmt.Println("FOR ANSI: ", tempAnsi.Apply())
-	fmt.Println("FOR 256: ", temp256.Apply())
-	fmt.Println("FOR HEX: ", tempHex.Apply())
-	fmt.Println("FOR RGB: ", tempRGB.Apply())
+	fmt.Println("STATIC TEMPLATES")
+	fmt.Println("    FOR ANSI: ", tempAnsi.Apply())
+	fmt.Println("    FOR 256: ", temp256.Apply())
+	fmt.Println("    FOR HEX: ", tempHex.Apply())
+	fmt.Println("    FOR RGB: ", tempRGB.Apply())
 }
 
 func TestWithToggle(t *testing.T){
@@ -24,11 +24,11 @@ func TestWithToggle(t *testing.T){
 	temp256 := toggle.Parse("[bold fg=115]Hello[reset]")
 	tempHex := toggle.Parse("[bold fg=#AABBCC]Hello[reset]")
 	tempRGB := toggle.Parse("[bold fg=rgb(15,102,224)]Hello [reset]")
-	
-	fmt.Println("FOR ANSI: ", tempAnsi.Apply())
-	fmt.Println("FOR 256: ", temp256.Apply())
-	fmt.Println("FOR HEX: ", tempHex.Apply())
-	fmt.Println("FOR RGB: ", tempRGB.Apply())	
+	fmt.Println("\n\nTEMPLATES WITH TOGGLE(COLOR OFF)")
+	fmt.Println("    FOR ANSI: ", tempAnsi.Apply())
+	fmt.Println("    FOR 256: ", temp256.Apply())
+	fmt.Println("    FOR HEX: ", tempHex.Apply())
+	fmt.Println("    FOR RGB: ", tempRGB.Apply())	
 
 }
 
@@ -37,11 +37,11 @@ func TestForInterpolation(t *testing.T){
 	temp256 := Parse("[bold fg=115]Hello [fg=13][0][reset]")
 	tempHex := Parse("[bold fg=#AABBCC]Hello [fg=#AAFFCC][0][reset]")
 	tempRGB := Parse("[bold fg=rgb(15,102,224)]Hello [fg=rgb(10,94,104)][0][reset]")
-	
-	fmt.Println("FOR ANSI: ", tempAnsi.Apply("World"))
-	fmt.Println("FOR 256: ", temp256.Apply("World"))
-	fmt.Println("FOR HEX: ", tempHex.Apply("World"))
-	fmt.Println("FOR RGB: ", tempRGB.Apply("World"))	
+	fmt.Println("\n\nTEMPLATES WITH PLACEHOLDER")
+	fmt.Println("    FOR ANSI: ", tempAnsi.Apply("World"))
+	fmt.Println("    FOR 256: ", temp256.Apply("World"))
+	fmt.Println("    FOR HEX: ", tempHex.Apply("World"))
+	fmt.Println("    FOR RGB: ", tempRGB.Apply("World"))	
 
 }
 

@@ -7,7 +7,7 @@ import (
 
 func main() {
     // Simple template with one placeholder
-    greeting := color.Parse("[fg=green]Hello, [0][reset]!")
+    greeting := color.Parse("[fg=green]Hello, [0][9999][reset]!")
     
     fmt.Println(greeting.Apply("Alice"))
     fmt.Println(greeting.Apply("Bob"))
